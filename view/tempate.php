@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
-<body style="background: wheat">
-<ul>
-    <?php include ROOT.'/views/'.$content_view; ?>
-</ul>
+<body >
+<div style="background: wheat">1111111111</div>
+<div><?php include ROOT.'/view/'.$content_view; ?></div>
+<div style="background: wheat">222222222222</div>
 </body>
 </html>

@@ -10,7 +10,7 @@ class View
 {
     public function generationView($content_view, $template_view, $data = null){
 
-        include ROOT.'/view/'.$template_view;
+        include_once ROOT.'/view/'.$template_view;
 
     }
 

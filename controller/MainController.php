@@ -11,12 +11,12 @@ class MainController extends Controller
 
     public function actionContent()
     {
-        $this->view->generationView('index/index.php', 'template.php');
+        $this->view->generationView('index.php', 'template.php');
     }
 
     public function actionIndex()
     {
-        require_once ROOT . '/view/index/index.php';
+        require_once ROOT . '/view/index.php';
     }
 
 }

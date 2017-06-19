@@ -9,7 +9,7 @@ class BlogController
     {
         $blog = array();
         $blog = Blog::getArticleList();
-        require_once ROOT . '/view/blog/index.php';
+        require_once ROOT . '/view/blog.php';
         return true;
 
     }
@@ -18,7 +18,7 @@ class BlogController
     {
         if ($id) {
             $singleBlog = Blog::getArticleById($id);
-            require_once ROOT . '/view/blog/singleArticle.php';
+            require_once ROOT . '/view/singleArticle.php';
         }
         return true;
     }
