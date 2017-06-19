@@ -27,11 +27,16 @@ class Router
 
                 $internalRoute = preg_replace("~$urlPattern~", $path, $url);
 
+
+
                 $segment = explode('/', $internalRoute);
+
+
 
                 $controllerName = ucfirst(array_shift($segment) . "Controller");
 
                 $actionName = "action" . ucfirst(array_shift($segment));
+
 
                 $param = $segment;
 
@@ -42,17 +47,38 @@ class Router
                     include_once ($controllerFile);
 
                 }
+                if(method_exists($controllerName,$actionName)){
 
-                $object = new $controllerName;
+                    $object = new $controllerName;
 
-                $result = call_user_func_array(array($object, $actionName), $param);
+                    $result = call_user_func_array(array($object, $actionName), $param);
 
-                if ($result != null) {
 
-                    break;
+
+                    if ($result != null) {
+
+                        break;
+
+                    }
+
+                }else{
+
+                    Router::ErrorPage404();
 
                 }
+
+
             }
         }
+    }
+    function ErrorPage404()
+    {
+        $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
+
+        header('HTTP/1.1 404 Not Found');
+
+        header("Status: 404 Not Found");
+
+        header('Location:'.$host.'404.php');
     }
 }
