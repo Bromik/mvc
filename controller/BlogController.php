@@ -7,19 +7,19 @@ class BlogController
 
     public function actionList()
     {
-        $blog=array();
+        $blog = array();
         $blog = Blog::getArticleList();
-        require_once ROOT.'/view/blog/index.php';
+        require_once ROOT . '/view/blog/index.php';
         return true;
 
     }
 
     public function actionArticle($id)
     {
-        if($id){
+        if ($id) {
             $singleBlog = Blog::getArticleById($id);
-            require_once ROOT.'/view/blog/singleArticle.php';
+            require_once ROOT . '/view/blog/singleArticle.php';
         }
-       return true;
+        return true;
     }
 }

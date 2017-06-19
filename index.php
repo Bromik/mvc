@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 define('ROOT', dirname(__FILE__));
 function __autoload($className)
 {
-    include_once ROOT . '/components/' . $className . '.php';
+    include_once ROOT . '/core/' . $className . '.php';
 }
 
 function wtf($arr)
