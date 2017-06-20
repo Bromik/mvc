@@ -69,8 +69,6 @@ class Router
     {
         $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
 
-
-
         header('Location:' . $host . '404.php');
     }
 }
