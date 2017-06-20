@@ -6,7 +6,7 @@ class Router
 
     public function __construct()
     {
-        $routPath = ROOT . '/config/route.php';
+        $routPath = ROOT . '/app/config/route.php';
         $this->route = include_once($routPath);
     }
 
@@ -36,7 +36,7 @@ class Router
 
                 $param = $segment;
 
-                $controllerFile = ROOT . '/controller/' . $controllerName . '.php';
+                $controllerFile = ROOT . '/app/controller/' . $controllerName . '.php';
 
                 if (file_exists($controllerFile)) {
 

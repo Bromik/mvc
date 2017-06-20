@@ -6,7 +6,7 @@ class Db
 
     public static function getConnect()
     {
-        $paramsPath = ROOT . '/config/dbConnect.php';
+        $paramsPath = ROOT . '/app/config/dbConnect.php';
 
         $params = include($paramsPath);
 

@@ -1,6 +1,6 @@
 <?php
 
-include_once ROOT . '/model/Blog.php';
+include_once ROOT . '/app/model/Blog.php';
 
 class BlogController extends Controller
 {
