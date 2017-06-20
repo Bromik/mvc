@@ -8,15 +8,8 @@
  */
 class MainController extends Controller
 {
-
-    public function actionContent()
+    public function actionIndex()
     {
         $this->view->generationView('index.php', 'template.php');
     }
-
-    public function actionIndex()
-    {
-        require_once ROOT . '/view/index.php';
-    }
-
 }

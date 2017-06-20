@@ -2,24 +2,32 @@
 
 include_once ROOT . '/model/Blog.php';
 
-class BlogController
+class BlogController extends Controller
 {
 
     public function actionList()
     {
         $blog = array();
+
         $blog = Blog::getArticleList();
-        require_once ROOT . '/view/blog.php';
-        return true;
+
+        $this->view->generationView('blog.php', 'template.php',$blog);
+
+
 
     }
 
     public function actionArticle($id)
     {
         if ($id) {
+
             $singleBlog = Blog::getArticleById($id);
-            require_once ROOT . '/view/singleArticle.php';
+
+            $this->view->generationView('singleArticle.php','template.php',$singleBlog);
+
+            return $singleBlog;
+
         }
-        return true;
+
     }
 }

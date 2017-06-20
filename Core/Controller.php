@@ -8,7 +8,6 @@
  */
 class Controller
 {
-    public $model;
     public $view;
 
     function __construct()
@@ -16,7 +15,4 @@ class Controller
         $this->view = new View();
     }
 
-    function actionContent()
-    {
-    }
 }

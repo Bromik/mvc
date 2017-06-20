@@ -3,12 +3,10 @@
 /**
  * Created by PhpStorm.
  * User: User
- * Date: 19.06.2017
- * Time: 18:16
+ * Date: 20.06.2017
+ * Time: 11:23
  */
 class Model
 {
-    public function get_data()
-    {
-    }
+
 }
