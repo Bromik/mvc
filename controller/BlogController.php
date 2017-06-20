@@ -13,8 +13,6 @@ class BlogController extends Controller
 
         $this->view->generationView('blog.php', 'template.php',$blog);
 
-
-
     }
 
     public function actionArticle($id)
