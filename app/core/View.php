@@ -11,7 +11,7 @@ class View
 {
     public function generationView($content_view, $template_view, $data=array()){
 
-        include ROOT.'/app/view/'.$template_view;
+        include ROOT.'/app/view/template/'.$template_view;
 
     }
 

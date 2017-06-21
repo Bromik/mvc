@@ -6,7 +6,7 @@ class Blog
     {
         $db = Db::getConnect();
 
-        $result = $db->query('SELECT * FROM articles WHERE id=' . $id);
+        $result = $db->query('SELECT * FROM news WHERE id=' . $id);
 
         $result->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -22,7 +22,7 @@ class Blog
 
         $articlesList = array();
 
-        $result = $db->query('SELECT id, title, date, short_content FROM articles ORDER BY date DESC LIMIT 10');
+        $result = $db->query('SELECT id, title, date, short_content FROM news ORDER BY date DESC LIMIT 10');
 
         $i = 0;
 
