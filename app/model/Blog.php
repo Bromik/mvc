@@ -1,12 +1,12 @@
 <?php
+require_once ROOT.'/app/lib/Inquiries.php';
+
 
 class Blog
 {
     public static function getArticleById($id)
     {
-        $db = Db::getConnect();
-
-        $result = $db->query('SELECT * FROM news WHERE id=' . $id);
+        $result=Inquiries::selectOne('news','id',$id);
 
         $result->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -18,11 +18,9 @@ class Blog
 
     public static function getArticleList()
     {
-        $db = Db::getConnect();
-
         $articlesList = array();
 
-        $result = $db->query('SELECT id, title, date, short_content FROM news ORDER BY date DESC LIMIT 10');
+        $result = Inquiries::selectAll('id, title, date, short_content','news','ORDER BY date DESC LIMIT 10');
 
         $i = 0;
 
