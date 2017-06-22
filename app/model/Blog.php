@@ -20,24 +20,33 @@ class Blog
     {
         $articlesList = array();
 
-        $result = Inquiries::selectAll('id, title, date, short_content', 'news', 'ORDER BY date DESC LIMIT 10');
+        $result = Inquiries::selectAll('id, title, date, short_content',
+            'news', 'ORDER BY date DESC LIMIT 10');
 
         $i = 0;
 
-        while ($row = $result->fetch()) {
+        if ($result->rowCount() > 0)
+        {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC))
+            {
 
-            $articlesList[$i]['id'] = $row['id'];
+                $articlesList[$i]['id'] = $row['id'];
 
-            $articlesList[$i]['title'] = $row['title'];
+                $articlesList[$i]['title'] = $row['title'];
 
-            $articlesList[$i]['date'] = $row['date'];
+                $articlesList[$i]['date'] = $row['date'];
 
-            $articlesList[$i]['short_content'] = $row['short_content'];
+                $articlesList[$i]['short_content'] = $row['short_content'];
 
-            $i++;
+                $i++;
+            }
+
+            return $articlesList;
+
+        } else
+        {
+            echo "Пока нет записей";
         }
-
-        return $articlesList;
 
     }
 

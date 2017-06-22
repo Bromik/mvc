@@ -1,0 +1,33 @@
+Pagination notes
+
+$results_per_page = $numb_item;
+
+        $sql = ("SELECT * FROM table");
+
+        $result = mysqli_query($db, $sql);
+
+        $number_of_results = mysqli_num_rows($result);
+
+        $number_of_pages = ceil($number_of_results / $results_per_page);
+
+        if (!isset($_GET['page'])) {
+            $page = 1;
+        } else {
+            $page = $_GET['page'];
+        }
+
+        $this_page_first_result = ($page - 1) * $results_per_page;
+
+        $sql = "SELECT * FROM table LIMIT $results_per_page,$results_per_page";
+
+        $result = mysqli_query($db, $sql);
+
+        while ($row = mysqli_fetch_array($result)) {
+            echo "{$row['id']} {$row['title']}<br>";
+        }
+
+        for ($page=1;$page<=$number_of_pages;$page++)
+        {
+            echo '<a href='.$_SERVER['REQUEST_URI'].'?page'.$page.'>'.$page.'</a>';
+        }
+http://www.codingcage.com/2015/04/how-to-create-pagination-with-php-pdo.html

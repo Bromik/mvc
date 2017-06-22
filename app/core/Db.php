@@ -18,6 +18,8 @@ class Db
 
                 $_dbh = new PDO($dns, $params['user'], $params['password']);
 
+                $_dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
             } catch (PDOException $e) {
 
                 echo 'Подключение не удалось: ' . $e->getMessage();
