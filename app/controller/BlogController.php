@@ -7,9 +7,10 @@ class BlogController extends Controller
 
     public function actionList()
     {
-       $blog = Blog::getArticleList();
+        $blog = Blog::getArticleList();
 
-        $this->view->generationView('blog.php', 'template.php',$blog);
+        $this->view->generationView('blog.php', 'template.php', $blog);
+
 
     }
 
@@ -19,11 +20,12 @@ class BlogController extends Controller
 
             $singleBlog = Blog::getArticleById($id);
 
-            $this->view->generationView('singleArticle.php','template.php',$singleBlog);
+            $this->view->generationView('singleArticle.php', 'template.php', $singleBlog);
 
             return $singleBlog;
 
         }
 
     }
+
 }

@@ -13,11 +13,11 @@ class Inquiries
         return $PDOQuery;
     }
 
-    public static function selectAll($row,$table,$conditions)
+    public static function selectAll($row, $table, $conditions)
     {
         $db = Db::getConnect();
 
-        $PDOQuery1=$db->prepare("SELECT $row FROM $table $conditions");
+        $PDOQuery1 = $db->prepare("SELECT $row FROM $table $conditions");
 
         $PDOQuery1->execute();
 

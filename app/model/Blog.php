@@ -1,12 +1,12 @@
 <?php
-require_once ROOT.'/app/lib/Inquiries.php';
+require_once ROOT . '/app/lib/Inquiries.php';
 
 
 class Blog
 {
     public static function getArticleById($id)
     {
-        $result=Inquiries::selectOne('news','id',$id);
+        $result = Inquiries::selectOne('news', 'id', $id);
 
         $result->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -20,7 +20,7 @@ class Blog
     {
         $articlesList = array();
 
-        $result = Inquiries::selectAll('id, title, date, short_content','news','ORDER BY date DESC LIMIT 10');
+        $result = Inquiries::selectAll('id, title, date, short_content', 'news', 'ORDER BY date DESC LIMIT 10');
 
         $i = 0;
 
